@@ -1,1 +1,259 @@
-{}
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+      "@type": "WorkflowCollection",
+      "name": "Sample - SAP Enterprise Threat Detection Cloud Edition - 1.0.0",
+      "description": "SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud Edition connector performs action like get and ingest Events, Alerts and Investigations.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "sap-etd-cloud"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "c4ed80b5-b942-4773-82ad-b57749e990e3",
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "triggerLimit": null,
+          "description": "Retrive alerts based on start and end date/time.",
+          "name": "Get Alerts",
+          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "recordTags": [
+            "sap-etd-cloud"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/a945fd9a-92bc-48ec-8e04-41f3d3eed2dd",
+          "steps": [
+            {
+              "uuid": "a945fd9a-92bc-48ec-8e04-41f3d3eed2dd",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "e9d960e7-249c-41d6-b2c8-fc2abdb24044",
+                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alerts",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "9147206f-d33c-4e35-b3a2-adca20637405",
+              "@type": "WorkflowStep",
+              "name": "Get Alerts",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "config": "''",
+                "params": {
+                  "limit": 10
+                },
+                "version": "1.0.0",
+                "connector": "sap-etd-cloud",
+                "operation": "get_alerts",
+                "operationTitle": "Get Alerts",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "9c0cee0d-5c4a-49b9-a775-05f212b19971",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alerts",
+              "sourceStep": "/api/3/workflow_steps/a945fd9a-92bc-48ec-8e04-41f3d3eed2dd",
+              "targetStep": "/api/3/workflow_steps/9147206f-d33c-4e35-b3a2-adca20637405"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "eeb2d317-011b-4b9d-aea5-5c0c86d41538",
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "triggerLimit": null,
+          "description": "Get Alerts by specified ID",
+          "name": "Get Alert Details by ID",
+          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "recordTags": [
+            "sap-etd-cloud"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e6410138-803b-4225-a0fd-73bd5262d3e9",
+          "steps": [
+            {
+              "uuid": "e6410138-803b-4225-a0fd-73bd5262d3e9",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "32577cdd-8e62-48d2-b7d8-b24b2bf49659",
+                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alert Details by ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "e268d255-aef0-499f-a19a-8329ee590e84",
+              "@type": "WorkflowStep",
+              "name": "Get Alert Details by ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "sap-etd-cloud",
+                "operation": "get_alert_by_id",
+                "operationTitle": "Get Alert Details by ID",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "15adbef0-70bf-4fbb-910a-35ee9083a16b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alert Details by ID",
+              "sourceStep": "/api/3/workflow_steps/e6410138-803b-4225-a0fd-73bd5262d3e9",
+              "targetStep": "/api/3/workflow_steps/e268d255-aef0-499f-a19a-8329ee590e84"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "95efd50e-ccb5-4760-875c-061b3c0b58e3",
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "triggerLimit": null,
+          "description": "Get alerts with expansion and filter for investigations",
+          "name": "Get Investigations",
+          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "recordTags": [
+            "sap-etd-cloud"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6c2fe01b-5b5d-4669-b736-68f6955b5b6e",
+          "steps": [
+            {
+              "uuid": "6c2fe01b-5b5d-4669-b736-68f6955b5b6e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "fd44b15a-edd3-40ba-8734-20a84a8ca449",
+                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Investigations",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ee3286fd-7b58-40b4-83eb-0d108d737854",
+              "@type": "WorkflowStep",
+              "name": "Get Investigations",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "config": "''",
+                "params": {
+                  "limit": 10
+                },
+                "version": "1.0.0",
+                "connector": "sap-etd-cloud",
+                "operation": "get_investigations",
+                "operationTitle": "Get Investigations",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ca7c602c-1d2d-44e2-a2db-360425f20eb8",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Investigations",
+              "sourceStep": "/api/3/workflow_steps/6c2fe01b-5b5d-4669-b736-68f6955b5b6e",
+              "targetStep": "/api/3/workflow_steps/ee3286fd-7b58-40b4-83eb-0d108d737854"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
