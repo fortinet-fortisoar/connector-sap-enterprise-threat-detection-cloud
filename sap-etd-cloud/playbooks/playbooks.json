@@ -9,7 +9,8 @@
       "visible": true,
       "image": null,
       "recordTags": [
-        "sap-etd-cloud"
+        "sap-etd-cloud",
+        "SAP"
       ],
       "workflows": [
         {
@@ -526,7 +527,7 @@
           "tag": null,
           "description": null,
           "isActive": true,
-          "debug": true,
+          "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
           "parameters": [],
