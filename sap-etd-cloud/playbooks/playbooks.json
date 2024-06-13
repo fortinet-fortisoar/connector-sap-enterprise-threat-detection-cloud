@@ -532,10 +532,10 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1718269624,
+          "lastModifyDate": 1718274978,
           "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
           "versions": [],
-          "triggerStep": "/api/3/workflow_steps/dca9a8b2-767c-4f69-8e8e-6bdc6e251b02",
+          "triggerStep": "/api/3/workflow_steps/3a1d5475-1b5f-499a-a6e3-641ccd8e10e1",
           "steps": [
             {
               "@type": "WorkflowStep",
@@ -545,14 +545,14 @@
                 "conditions": [
                   {
                     "option": "No",
-                    "step_iri": "/api/3/workflow_steps/24cb79ac-4f82-42e1-8b0d-d5eb81d141cb",
+                    "step_iri": "/api/3/workflow_steps/eda146e2-8394-4a97-8fbb-9add5f888765",
                     "condition": "{{ vars.steps.Get_Last_Pull_Time.data['hydra:totalItems'] == 0 }}",
                     "step_name": "Create Macro"
                   },
                   {
                     "option": "Yes",
                     "default": true,
-                    "step_iri": "/api/3/workflow_steps/7cc34078-78c5-406e-b356-c22f9880060d",
+                    "step_iri": "/api/3/workflow_steps/3153a372-5b29-4981-96f1-497867fbc94a",
                     "step_name": "Fetch current macro value"
                   }
                 ],
@@ -562,14 +562,15 @@
               "top": "200",
               "left": "200",
               "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
-              "group": "/api/3/workflow_groups/63876778-8bdc-42d6-a53c-68fd382fd2b7",
-              "uuid": "7dffb61b-9ac5-4a80-a5e7-4a69f359e510"
+              "group": "/api/3/workflow_groups/80fd4772-ca86-4b18-917a-e9626ef0714d",
+              "uuid": "540ef905-2046-4a58-aac3-36e816a34a3b"
             },
             {
               "@type": "WorkflowStep",
               "name": "Configuration",
               "description": null,
               "arguments": {
+                "minutes": "30",
                 "batchSize": "100",
                 "fetchTime": "{{arrow.utcnow().format('YYYY-MM-DDTHH:mm:ss.ssss')}}Z",
                 "defaultMinutes": "30",
@@ -577,11 +578,11 @@
                 "macroNameForLastPullTime": "SAPETDPCELastPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
               },
               "status": null,
-              "top": "238",
-              "left": "450",
+              "top": "165",
+              "left": "327",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
-              "uuid": "3111f5ea-a902-4f95-b51c-fa25e511f642"
+              "uuid": "4ab52b76-f3f8-4e34-bfb6-e422424aa637"
             },
             {
               "@type": "WorkflowStep",
@@ -590,10 +591,10 @@
               "arguments": {
                 "params": {
                   "iri": "/api/wf/api/dynamic-variable/?format=json",
-                  "body": "{ 'name': '{{vars.macroNameForLastPullTime}}'   , 'value':'{{arrow.get(vars.fetchTime).replace(minutes=-vars.defaultMinutes)}}' }",
+                  "body": "{ 'name': '{{vars.macroNameForLastPullTime}}'   , 'value':'0' }",
                   "method": "POST"
                 },
-                "version": "3.2.6",
+                "version": "3.3.1",
                 "connector": "cyops_utilities",
                 "operation": "make_cyops_request",
                 "operationTitle": "FSR: Make FortiSOAR API Call",
@@ -603,8 +604,8 @@
               "top": "360",
               "left": "20",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "group": "/api/3/workflow_groups/63876778-8bdc-42d6-a53c-68fd382fd2b7",
-              "uuid": "24cb79ac-4f82-42e1-8b0d-d5eb81d141cb"
+              "group": "/api/3/workflow_groups/80fd4772-ca86-4b18-917a-e9626ef0714d",
+              "uuid": "eda146e2-8394-4a97-8fbb-9add5f888765"
             },
             {
               "@type": "WorkflowStep",
@@ -617,8 +618,8 @@
               "top": "360",
               "left": "380",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": "/api/3/workflow_groups/63876778-8bdc-42d6-a53c-68fd382fd2b7",
-              "uuid": "7cc34078-78c5-406e-b356-c22f9880060d"
+              "group": "/api/3/workflow_groups/80fd4772-ca86-4b18-917a-e9626ef0714d",
+              "uuid": "3153a372-5b29-4981-96f1-497867fbc94a"
             },
             {
               "@type": "WorkflowStep",
@@ -626,7 +627,7 @@
               "description": null,
               "arguments": {
                 "name": "SAP Enterprise Threat Detection Cloud Editon",
-                "config": "a6d671a4-81a4-4334-a3a9-b6227415e1ac",
+                "config": "991581aa-8e67-4243-bdbb-b2360b826f70",
                 "params": {
                   "limit": "{{vars.batchSize}}",
                   "endTime": "{{vars.fetchTime}}",
@@ -640,11 +641,11 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "238",
-              "left": "2154",
+              "top": "1020",
+              "left": "1220",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
-              "uuid": "0c658345-c9d5-425b-a691-1c8dd0bc89be"
+              "uuid": "c749d3d6-08f5-4318-8d4f-b8285100b218"
             },
             {
               "@type": "WorkflowStep",
@@ -666,23 +667,37 @@
               "top": "60",
               "left": "200",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "group": "/api/3/workflow_groups/63876778-8bdc-42d6-a53c-68fd382fd2b7",
-              "uuid": "3eefa56e-8c3b-4343-8736-eb0e8489948f"
+              "group": "/api/3/workflow_groups/80fd4772-ca86-4b18-917a-e9626ef0714d",
+              "uuid": "c4464e52-2f67-48d2-afd4-1297c143f7a4"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "get last time",
+              "description": null,
+              "arguments": {
+                "macroExistingRecord": "{{vars.macroExistingRecord.value}}"
+              },
+              "status": null,
+              "top": "460",
+              "left": "380",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": "/api/3/workflow_groups/80fd4772-ca86-4b18-917a-e9626ef0714d",
+              "uuid": "aa7c1370-abdd-4355-8804-5301c6d3cab7"
             },
             {
               "@type": "WorkflowStep",
               "name": "Get timestamps",
               "description": null,
               "arguments": {
-                "lastPullTime": "{{vars.macroExistingRecord.value}}",
+                "lastPullTime": "{{vars.macroExistingRecord}}",
                 "lastFetchTime": "{{vars.fetchTime}}"
               },
               "status": null,
-              "top": "238",
-              "left": "1504",
+              "top": "1020",
+              "left": "340",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
-              "uuid": "7133ec71-be2d-496c-a094-570d1d167e6f"
+              "uuid": "4b6ee59d-9674-4bb3-aaad-b69bab8dea5d"
             },
             {
               "@type": "WorkflowStep",
@@ -692,11 +707,25 @@
                 "result_data": "{{vars.steps.Get_Alerts.data}}"
               },
               "status": null,
-              "top": "238",
-              "left": "2479",
+              "top": "1040",
+              "left": "1611",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
-              "uuid": "627bbf6e-bc2c-40d8-b09a-f5ae090518f3"
+              "uuid": "550c0a19-40db-451d-9b75-5e89ea034f61"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "set current time",
+              "description": null,
+              "arguments": {
+                "macroExistingRecord": "{{arrow.get(vars.fetchTime).shift(minutes=-vars.defaultMinutes).format('YYYY-MM-DDTHH:mm:ss.ssss')}}Z"
+              },
+              "status": null,
+              "top": "460",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": "/api/3/workflow_groups/80fd4772-ca86-4b18-917a-e9626ef0714d",
+              "uuid": "dd146dca-df7b-4854-acc2-f8e82f75322b"
             },
             {
               "@type": "WorkflowStep",
@@ -714,11 +743,11 @@
                 "triggerOnReplicate": false
               },
               "status": null,
-              "top": "238",
-              "left": "125",
+              "top": "30",
+              "left": "327",
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "group": null,
-              "uuid": "dca9a8b2-767c-4f69-8e8e-6bdc6e251b02"
+              "uuid": "3a1d5475-1b5f-499a-a6e3-641ccd8e10e1"
             },
             {
               "@type": "WorkflowStep",
@@ -736,113 +765,133 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "238",
-              "left": "1829",
+              "top": "1020",
+              "left": "800",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
-              "uuid": "385773c7-a087-4c9e-b521-55a21be705b2"
+              "uuid": "8f8fb93a-94d6-4891-9553-9e61db1c659e"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
               "name": "check if macro exists -> Create Macro",
-              "targetStep": "/api/3/workflow_steps/24cb79ac-4f82-42e1-8b0d-d5eb81d141cb",
-              "sourceStep": "/api/3/workflow_steps/7dffb61b-9ac5-4a80-a5e7-4a69f359e510",
+              "targetStep": "/api/3/workflow_steps/eda146e2-8394-4a97-8fbb-9add5f888765",
+              "sourceStep": "/api/3/workflow_steps/540ef905-2046-4a58-aac3-36e816a34a3b",
               "label": "No",
               "isExecuted": false,
               "group": null,
-              "uuid": "94ebb816-9e89-4bbb-80a2-77ad25ee4104"
+              "uuid": "19c9f772-3226-4af5-afe4-53d050ea7b0d"
             },
             {
               "@type": "WorkflowRoute",
               "name": "check if macro exists -> Fetch current macro value",
-              "targetStep": "/api/3/workflow_steps/7cc34078-78c5-406e-b356-c22f9880060d",
-              "sourceStep": "/api/3/workflow_steps/7dffb61b-9ac5-4a80-a5e7-4a69f359e510",
+              "targetStep": "/api/3/workflow_steps/3153a372-5b29-4981-96f1-497867fbc94a",
+              "sourceStep": "/api/3/workflow_steps/540ef905-2046-4a58-aac3-36e816a34a3b",
               "label": "Yes",
               "isExecuted": false,
               "group": null,
-              "uuid": "5f1a2d1a-8e65-4d36-a1a2-667c62bc607b"
+              "uuid": "2eb5184a-2d72-4951-a4c2-68699e10f077"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Configuration -> Get Last Pull Time",
-              "targetStep": "/api/3/workflow_steps/3eefa56e-8c3b-4343-8736-eb0e8489948f",
-              "sourceStep": "/api/3/workflow_steps/3111f5ea-a902-4f95-b51c-fa25e511f642",
+              "targetStep": "/api/3/workflow_steps/c4464e52-2f67-48d2-afd4-1297c143f7a4",
+              "sourceStep": "/api/3/workflow_steps/4ab52b76-f3f8-4e34-bfb6-e422424aa637",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "6f9d675d-c21e-46e9-a1ff-ec24a117621d"
+              "uuid": "aee150c9-32e6-4ea7-bd7a-6d7185168e94"
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Create Macro -> Debug",
-              "targetStep": "/api/3/workflow_steps/7133ec71-be2d-496c-a094-570d1d167e6f",
-              "sourceStep": "/api/3/workflow_steps/24cb79ac-4f82-42e1-8b0d-d5eb81d141cb",
+              "name": "Create Macro -> set current time",
+              "targetStep": "/api/3/workflow_steps/dd146dca-df7b-4854-acc2-f8e82f75322b",
+              "sourceStep": "/api/3/workflow_steps/eda146e2-8394-4a97-8fbb-9add5f888765",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "a7019a21-128f-471b-bb93-3fe42ae77c6a"
+              "uuid": "5c7f7891-b519-4e85-ae43-e0e339a3f3fb"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Debug -> Update Last Pull Time",
-              "targetStep": "/api/3/workflow_steps/385773c7-a087-4c9e-b521-55a21be705b2",
-              "sourceStep": "/api/3/workflow_steps/7133ec71-be2d-496c-a094-570d1d167e6f",
+              "targetStep": "/api/3/workflow_steps/8f8fb93a-94d6-4891-9553-9e61db1c659e",
+              "sourceStep": "/api/3/workflow_steps/4b6ee59d-9674-4bb3-aaad-b69bab8dea5d",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "01f2f740-a86d-4773-86f4-83704444f821"
+              "uuid": "5b66cedd-6bd8-49c0-9680-3d16d7dd993a"
             },
             {
               "@type": "WorkflowRoute",
-              "name": "Fetch current macro value -> Debug",
-              "targetStep": "/api/3/workflow_steps/7133ec71-be2d-496c-a094-570d1d167e6f",
-              "sourceStep": "/api/3/workflow_steps/7cc34078-78c5-406e-b356-c22f9880060d",
+              "name": "Fetch current macro value -> get last tinme",
+              "targetStep": "/api/3/workflow_steps/aa7c1370-abdd-4355-8804-5301c6d3cab7",
+              "sourceStep": "/api/3/workflow_steps/3153a372-5b29-4981-96f1-497867fbc94a",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "4fa4a22e-d873-4351-8679-d8dc0f15a40a"
+              "uuid": "05fb05b0-cb1d-4f1d-8982-3289ac057742"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Get Alerts -> Return Data",
-              "targetStep": "/api/3/workflow_steps/627bbf6e-bc2c-40d8-b09a-f5ae090518f3",
-              "sourceStep": "/api/3/workflow_steps/0c658345-c9d5-425b-a691-1c8dd0bc89be",
+              "targetStep": "/api/3/workflow_steps/550c0a19-40db-451d-9b75-5e89ea034f61",
+              "sourceStep": "/api/3/workflow_steps/c749d3d6-08f5-4318-8d4f-b8285100b218",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "e1cf9734-6e26-4748-81ec-b13cce5a2613"
+              "uuid": "d2c3dbb8-e93a-4d6f-929e-86be26169ac2"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Get Last Pull Time -> check if macro exists",
-              "targetStep": "/api/3/workflow_steps/7dffb61b-9ac5-4a80-a5e7-4a69f359e510",
-              "sourceStep": "/api/3/workflow_steps/3eefa56e-8c3b-4343-8736-eb0e8489948f",
+              "targetStep": "/api/3/workflow_steps/540ef905-2046-4a58-aac3-36e816a34a3b",
+              "sourceStep": "/api/3/workflow_steps/c4464e52-2f67-48d2-afd4-1297c143f7a4",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "a942b1ed-b4a1-4942-ab2f-847a5214d511"
+              "uuid": "7f50d943-8fea-41c9-a72c-7ab9def58b9f"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "get last tinme -> Get timestamps",
+              "targetStep": "/api/3/workflow_steps/4b6ee59d-9674-4bb3-aaad-b69bab8dea5d",
+              "sourceStep": "/api/3/workflow_steps/aa7c1370-abdd-4355-8804-5301c6d3cab7",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "314c3df4-e805-4d1c-8144-aa898550975a"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "set current time -> Debug",
+              "targetStep": "/api/3/workflow_steps/4b6ee59d-9674-4bb3-aaad-b69bab8dea5d",
+              "sourceStep": "/api/3/workflow_steps/dd146dca-df7b-4854-acc2-f8e82f75322b",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "edc24ab2-3e96-4c93-8880-e265cc667190"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Start -> Configuration",
-              "targetStep": "/api/3/workflow_steps/3111f5ea-a902-4f95-b51c-fa25e511f642",
-              "sourceStep": "/api/3/workflow_steps/dca9a8b2-767c-4f69-8e8e-6bdc6e251b02",
+              "targetStep": "/api/3/workflow_steps/4ab52b76-f3f8-4e34-bfb6-e422424aa637",
+              "sourceStep": "/api/3/workflow_steps/3a1d5475-1b5f-499a-a6e3-641ccd8e10e1",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "23c3cef0-918a-45e5-9d7f-0cba99803713"
+              "uuid": "59d5238a-67d8-4121-aeb0-269c92c272f4"
             },
             {
               "@type": "WorkflowRoute",
               "name": "Update Last Pull Time -> Get Alerts",
-              "targetStep": "/api/3/workflow_steps/0c658345-c9d5-425b-a691-1c8dd0bc89be",
-              "sourceStep": "/api/3/workflow_steps/385773c7-a087-4c9e-b521-55a21be705b2",
+              "targetStep": "/api/3/workflow_steps/c749d3d6-08f5-4318-8d4f-b8285100b218",
+              "sourceStep": "/api/3/workflow_steps/8f8fb93a-94d6-4891-9553-9e61db1c659e",
               "label": null,
               "isExecuted": false,
               "group": null,
-              "uuid": "b2a90f12-6a31-4388-a38f-fb68aacca1b5"
+              "uuid": "b838d734-052a-4fc2-bef0-d4a954027176"
             }
           ],
           "groups": [
@@ -856,17 +905,17 @@
               "hideInLogs": false,
               "metadata": [],
               "reusable": false,
-              "top": "180",
-              "left": "780",
-              "height": "476",
-              "width": "654",
-              "uuid": "63876778-8bdc-42d6-a53c-68fd382fd2b7",
+              "top": "420",
+              "left": "140",
+              "height": "547",
+              "width": "647",
+              "uuid": "80fd4772-ca86-4b18-917a-e9626ef0714d",
               "recordTags": []
             }
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
-          "uuid": "d16b2f16-7f91-4ef5-8199-ad533ca892f1",
-          "id": 567,
+          "uuid": "4bb0866a-6d14-487b-973d-d8bd93411b0f",
+          "id": 570,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
