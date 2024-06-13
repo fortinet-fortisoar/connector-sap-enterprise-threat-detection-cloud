@@ -7,6 +7,9 @@
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "category": "Threat Detection",
+  "ingestion_supported": true,
+  "ingestion_modes": ["scheduled"],
+  "ingestion_preferences": {"modules": ["alerts"]},
   "configuration": {
     "fields": [
       {
