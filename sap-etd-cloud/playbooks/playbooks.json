@@ -532,7 +532,7 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1718195018,
+          "lastModifyDate": 1718269624,
           "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/dca9a8b2-767c-4f69-8e8e-6bdc6e251b02",
@@ -577,8 +577,8 @@
                 "macroNameForLastPullTime": "SAPETDPCELastPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
               },
               "status": null,
-              "top": "165",
-              "left": "327",
+              "top": "238",
+              "left": "450",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
               "uuid": "3111f5ea-a902-4f95-b51c-fa25e511f642"
@@ -590,10 +590,10 @@
               "arguments": {
                 "params": {
                   "iri": "/api/wf/api/dynamic-variable/?format=json",
-                  "body": "{ 'name': '{{vars.macroNameForLastPullTime}}'   , 'value':'0' }",
+                  "body": "{ 'name': '{{vars.macroNameForLastPullTime}}'   , 'value':'{{arrow.get(vars.fetchTime).replace(minutes=-vars.defaultMinutes)}}' }",
                   "method": "POST"
                 },
-                "version": "3.3.1",
+                "version": "3.2.6",
                 "connector": "cyops_utilities",
                 "operation": "make_cyops_request",
                 "operationTitle": "FSR: Make FortiSOAR API Call",
@@ -605,21 +605,6 @@
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": "/api/3/workflow_groups/63876778-8bdc-42d6-a53c-68fd382fd2b7",
               "uuid": "24cb79ac-4f82-42e1-8b0d-d5eb81d141cb"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Debug",
-              "description": null,
-              "arguments": {
-                "lastPullTime": "{{vars.macroExistingRecord.value}}",
-                "lastFetchTime": "{{vars.fetchTime}}"
-              },
-              "status": null,
-              "top": "1020",
-              "left": "340",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "7133ec71-be2d-496c-a094-570d1d167e6f"
             },
             {
               "@type": "WorkflowStep",
@@ -655,8 +640,8 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "1020",
-              "left": "1220",
+              "top": "238",
+              "left": "2154",
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "0c658345-c9d5-425b-a691-1c8dd0bc89be"
@@ -686,14 +671,29 @@
             },
             {
               "@type": "WorkflowStep",
+              "name": "Get timestamps",
+              "description": null,
+              "arguments": {
+                "lastPullTime": "{{vars.macroExistingRecord.value}}",
+                "lastFetchTime": "{{vars.fetchTime}}"
+              },
+              "status": null,
+              "top": "238",
+              "left": "1504",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "7133ec71-be2d-496c-a094-570d1d167e6f"
+            },
+            {
+              "@type": "WorkflowStep",
               "name": "Return Data",
               "description": null,
               "arguments": {
                 "result_data": "{{vars.steps.Get_Alerts.data}}"
               },
               "status": null,
-              "top": "1040",
-              "left": "1611",
+              "top": "238",
+              "left": "2479",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
               "uuid": "627bbf6e-bc2c-40d8-b09a-f5ae090518f3"
@@ -714,8 +714,8 @@
                 "triggerOnReplicate": false
               },
               "status": null,
-              "top": "30",
-              "left": "327",
+              "top": "238",
+              "left": "125",
               "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
               "group": null,
               "uuid": "dca9a8b2-767c-4f69-8e8e-6bdc6e251b02"
@@ -736,8 +736,8 @@
                 "step_variables": []
               },
               "status": null,
-              "top": "1020",
-              "left": "800",
+              "top": "238",
+              "left": "1829",
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "385773c7-a087-4c9e-b521-55a21be705b2"
@@ -856,8 +856,8 @@
               "hideInLogs": false,
               "metadata": [],
               "reusable": false,
-              "top": "420",
-              "left": "140",
+              "top": "180",
+              "left": "780",
               "height": "476",
               "width": "654",
               "uuid": "63876778-8bdc-42d6-a53c-68fd382fd2b7",
@@ -866,7 +866,7 @@
           ],
           "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
           "uuid": "d16b2f16-7f91-4ef5-8199-ad533ca892f1",
-          "id": 3449,
+          "id": 567,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
