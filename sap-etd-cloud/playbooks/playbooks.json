@@ -1,0 +1,933 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+      "@type": "WorkflowCollection",
+      "name": "Sample - SAP Enterprise Threat Detection Cloud Edition - 1.0.0",
+      "description": "SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud Edition connector performs action like get and ingest Events, Alerts and Investigations.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "sap-etd-cloud",
+        "SAP"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "c4ed80b5-b942-4773-82ad-b57749e990e3",
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "triggerLimit": null,
+          "description": "Retrive alerts based on start and end date/time.",
+          "name": "Get Alerts",
+          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "recordTags": [
+            "sap-etd-cloud"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/a945fd9a-92bc-48ec-8e04-41f3d3eed2dd",
+          "steps": [
+            {
+              "uuid": "a945fd9a-92bc-48ec-8e04-41f3d3eed2dd",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "e9d960e7-249c-41d6-b2c8-fc2abdb24044",
+                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alerts",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "9147206f-d33c-4e35-b3a2-adca20637405",
+              "@type": "WorkflowStep",
+              "name": "Get Alerts",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "config": "''",
+                "params": {
+                  "limit": 10
+                },
+                "version": "1.0.0",
+                "connector": "sap-etd-cloud",
+                "operation": "get_alerts",
+                "operationTitle": "Get Alerts",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "9c0cee0d-5c4a-49b9-a775-05f212b19971",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alerts",
+              "sourceStep": "/api/3/workflow_steps/a945fd9a-92bc-48ec-8e04-41f3d3eed2dd",
+              "targetStep": "/api/3/workflow_steps/9147206f-d33c-4e35-b3a2-adca20637405"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "eeb2d317-011b-4b9d-aea5-5c0c86d41538",
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "triggerLimit": null,
+          "description": "Get Alerts by specified ID",
+          "name": "Get Alert Details by ID",
+          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "recordTags": [
+            "sap-etd-cloud"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e6410138-803b-4225-a0fd-73bd5262d3e9",
+          "steps": [
+            {
+              "uuid": "e6410138-803b-4225-a0fd-73bd5262d3e9",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "32577cdd-8e62-48d2-b7d8-b24b2bf49659",
+                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alert Details by ID",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "e268d255-aef0-499f-a19a-8329ee590e84",
+              "@type": "WorkflowStep",
+              "name": "Get Alert Details by ID",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "sap-etd-cloud",
+                "operation": "get_alert_by_id",
+                "operationTitle": "Get Alert Details by ID",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "15adbef0-70bf-4fbb-910a-35ee9083a16b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Alert Details by ID",
+              "sourceStep": "/api/3/workflow_steps/e6410138-803b-4225-a0fd-73bd5262d3e9",
+              "targetStep": "/api/3/workflow_steps/e268d255-aef0-499f-a19a-8329ee590e84"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "95efd50e-ccb5-4760-875c-061b3c0b58e3",
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "triggerLimit": null,
+          "description": "Get alerts with expansion and filter for investigations",
+          "name": "Get Investigations",
+          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "recordTags": [
+            "sap-etd-cloud"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6c2fe01b-5b5d-4669-b736-68f6955b5b6e",
+          "steps": [
+            {
+              "uuid": "6c2fe01b-5b5d-4669-b736-68f6955b5b6e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "fd44b15a-edd3-40ba-8734-20a84a8ca449",
+                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Investigations",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ee3286fd-7b58-40b4-83eb-0d108d737854",
+              "@type": "WorkflowStep",
+              "name": "Get Investigations",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "config": "''",
+                "params": {
+                  "limit": 10
+                },
+                "version": "1.0.0",
+                "connector": "sap-etd-cloud",
+                "operation": "get_investigations",
+                "operationTitle": "Get Investigations",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ca7c602c-1d2d-44e2-a2db-360425f20eb8",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Investigations",
+              "sourceStep": "/api/3/workflow_steps/6c2fe01b-5b5d-4669-b736-68f6955b5b6e",
+              "targetStep": "/api/3/workflow_steps/ee3286fd-7b58-40b4-83eb-0d108d737854"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "> SAP ETD CE > Create Record",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [
+            "source_data"
+          ],
+          "synchronous": false,
+          "lastModifyDate": 1718201781,
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/86b71719-ab11-452b-869a-b4714821aefe",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Alert Record",
+              "description": null,
+              "arguments": {
+                "resource": {
+                  "name": "{{vars.alert_data.PatternName}}",
+                  "type": "/api/3/picklists/574a6ee2-7265-4701-815e-cff83b053bce",
+                  "state": "/api/3/picklists/a1bac09b-1441-45aa-ad1b-c88744e48e72",
+                  "status": "/api/3/picklists/7de816ff-7140-4ee5-bd05-93ce22002146",
+                  "severity": "/api/3/picklists/58d0753f-f7e4-403b-953c-b0f521eab759",
+                  "sourceId": "{{vars.alert_data.AlertId}}",
+                  "__replace": "",
+                  "sourcedata": "{{vars.alert_data | toJSON }}",
+                  "description": "{{vars.alert_data.PatternDescription}}",
+                  "ackSlaStatus": "/api/3/picklists/72979f64-e8b9-4888-a965-957e0ec24818",
+                  "respSlaStatus": "/api/3/picklists/72979f64-e8b9-4888-a965-957e0ec24818",
+                  "priorityWeight": 1,
+                  "escalatedtoincident": "/api/3/picklists/2128a09c-153d-4db3-985d-de6be33deae5",
+                  "resolvedAutomatedly": false,
+                  "alertRemainingAckSLA": 0
+                },
+                "operation": "Overwrite",
+                "collection": "/api/3/alerts",
+                "__recommend": [],
+                "fieldOperation": {
+                  "recordTags": "Overwrite"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "340",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
+              "group": null,
+              "uuid": "53c135ba-e017-4296-8577-d9af86a7f0fa"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Extract Alert information",
+              "description": null,
+              "arguments": {
+                "alert_data": "{{vars.input.params['source_data']}}"
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "01c83254-6274-4e9f-ab17-8c3e896ad7e4"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "86b71719-ab11-452b-869a-b4714821aefe"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Extract Alert information -> Create Alert Record",
+              "targetStep": "/api/3/workflow_steps/53c135ba-e017-4296-8577-d9af86a7f0fa",
+              "sourceStep": "/api/3/workflow_steps/01c83254-6274-4e9f-ab17-8c3e896ad7e4",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "b4459755-1a3a-4ba6-960b-86383482ad84"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Extract Alert information",
+              "targetStep": "/api/3/workflow_steps/01c83254-6274-4e9f-ab17-8c3e896ad7e4",
+              "sourceStep": "/api/3/workflow_steps/86b71719-ab11-452b-869a-b4714821aefe",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "53b3ee15-5f07-4a3e-ba93-84969a9b8765"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "3234b9c4-5580-448a-84a5-81cc34f19cdc",
+          "id": 600,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "create",
+            "dataingestion",
+            "SAP",
+            "sap-etd-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "SAP ETD CE > Ingest",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1718275658,
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a7df40ef-5df1-4f57-b181-602036c2396c",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Record",
+              "description": null,
+              "arguments": {
+                "for_each": {
+                  "item": "{{vars.steps.Get_Alerts.data}}",
+                  "parallel": false,
+                  "condition": ""
+                },
+                "arguments": {
+                  "source_data": "{{vars.item}}"
+                },
+                "apply_async": false,
+                "step_variables": [],
+                "pass_parent_env": false,
+                "pass_input_record": false,
+                "workflowReference": "/api/3/workflows/3234b9c4-5580-448a-84a5-81cc34f19cdc"
+              },
+              "status": null,
+              "top": "180",
+              "left": "440",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "group": null,
+              "uuid": "68bb5e5c-27de-4cc9-b4d7-0a2f64a69cd4"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts",
+              "description": null,
+              "arguments": {
+                "arguments": [],
+                "apply_async": false,
+                "step_variables": [],
+                "pass_parent_env": false,
+                "pass_input_record": false,
+                "workflowReference": "/api/3/workflows/b6bfd3ed-0e58-4629-91b8-c7ade25245f5"
+              },
+              "status": null,
+              "top": "180",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "group": null,
+              "uuid": "5487bf51-fae9-4a78-8a76-f22c86169817"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "35ab18d7-7e8f-4804-8ddf-9d157bc354ac",
+                "resources": [
+                  "alerts"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a7df40ef-5df1-4f57-b181-602036c2396c"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Alerts -> Create Record",
+              "targetStep": "/api/3/workflow_steps/68bb5e5c-27de-4cc9-b4d7-0a2f64a69cd4",
+              "sourceStep": "/api/3/workflow_steps/5487bf51-fae9-4a78-8a76-f22c86169817",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "169f8732-8fa6-44d9-9fad-af3ba0024ab2"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Alerts",
+              "targetStep": "/api/3/workflow_steps/5487bf51-fae9-4a78-8a76-f22c86169817",
+              "sourceStep": "/api/3/workflow_steps/a7df40ef-5df1-4f57-b181-602036c2396c",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "6f055b3e-6385-423d-b1e1-34b943c17ad7"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "5e35335c-1189-4ab1-8793-6d69b2a26681",
+          "id": 601,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "dataingestion",
+            "ingest",
+            "SAP",
+            "sap-etd-cloud"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "> SAP ETD CE > Fetch",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1718275615,
+          "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/8f8c055a-c926-4854-8a6e-186b303fc8a7",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "check if macro exists",
+              "description": null,
+              "arguments": {
+                "conditions": [
+                  {
+                    "option": "No",
+                    "step_iri": "/api/3/workflow_steps/045108e5-0538-405f-875e-afde4d120ba6",
+                    "condition": "{{ vars.steps.Get_Last_Pull_Time.data['hydra:totalItems'] == 0 }}",
+                    "step_name": "Create Macro"
+                  },
+                  {
+                    "option": "Yes",
+                    "default": true,
+                    "step_iri": "/api/3/workflow_steps/62b304c9-6851-46db-8c7e-93340489856d",
+                    "step_name": "Fetch current macro value"
+                  }
+                ],
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "200",
+              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+              "group": "/api/3/workflow_groups/29725e4c-0623-4d3a-b3a3-7bccbd039128",
+              "uuid": "ce6e8183-4427-4209-8c17-df4c5537d8ee"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "minutes": "30",
+                "batchSize": "100",
+                "fetchTime": "{{arrow.utcnow().format('YYYY-MM-DDTHH:mm:ss.ssss')}}Z",
+                "defaultMinutes": "30",
+                "pullTimeMacroName": "SAPETDPCELastPullTime",
+                "macroNameForLastPullTime": "SAPETDPCELastPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
+              },
+              "status": null,
+              "top": "165",
+              "left": "327",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "80318b62-513a-42a5-afda-a3df856f44b8"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Macro",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "iri": "/api/wf/api/dynamic-variable/?format=json",
+                  "body": "{ 'name': '{{vars.macroNameForLastPullTime}}'   , 'value':'0' }",
+                  "method": "POST"
+                },
+                "version": "3.3.1",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "360",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": "/api/3/workflow_groups/29725e4c-0623-4d3a-b3a3-7bccbd039128",
+              "uuid": "045108e5-0538-405f-875e-afde4d120ba6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Fetch current macro value",
+              "description": null,
+              "arguments": {
+                "macroExistingRecord": "{{vars.steps.Get_Last_Pull_Time.data['hydra:member'][0]}}"
+              },
+              "status": null,
+              "top": "360",
+              "left": "380",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": "/api/3/workflow_groups/29725e4c-0623-4d3a-b3a3-7bccbd039128",
+              "uuid": "62b304c9-6851-46db-8c7e-93340489856d"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts",
+              "description": null,
+              "arguments": {
+                "name": "SAP Enterprise Threat Detection Cloud Editon",
+                "config": "0a79bb63-b6dc-4bb4-84d4-1ef503af46c3",
+                "params": {
+                  "limit": "{{vars.batchSize}}",
+                  "endTime": "{{vars.fetchTime}}",
+                  "startTime": "{{vars.lastPullTime}}"
+                },
+                "version": "1.0.0",
+                "connector": "sap-etd-cloud",
+                "operation": "get_alerts",
+                "operationTitle": "Get Alerts",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "1020",
+              "left": "1220",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2b581d4f-8524-4860-a08e-92533b5f15f0"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Last Pull Time",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "iri": "/api/wf/api/dynamic-variable/?name={{vars.macroNameForLastPullTime}}",
+                  "body": "",
+                  "method": "GET"
+                },
+                "version": "3.3.1",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "60",
+              "left": "200",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": "/api/3/workflow_groups/29725e4c-0623-4d3a-b3a3-7bccbd039128",
+              "uuid": "fedfba5c-ad11-427b-bb71-67d9a2b38373"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "get last time",
+              "description": null,
+              "arguments": {
+                "macroExistingRecord": "{{vars.macroExistingRecord.value}}"
+              },
+              "status": null,
+              "top": "460",
+              "left": "380",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": "/api/3/workflow_groups/29725e4c-0623-4d3a-b3a3-7bccbd039128",
+              "uuid": "e783ed5e-667a-421e-8c65-0ce6e8ce588c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get timestamps",
+              "description": null,
+              "arguments": {
+                "lastPullTime": "{{vars.macroExistingRecord}}",
+                "lastFetchTime": "{{vars.fetchTime}}"
+              },
+              "status": null,
+              "top": "1020",
+              "left": "340",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "32fdbff3-d4b8-4c15-8544-6ec5b8a2d98c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Return Data",
+              "description": null,
+              "arguments": {
+                "data": "{{vars.steps.Get_Alerts.data.value}}"
+              },
+              "status": null,
+              "top": "1040",
+              "left": "1611",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "ffb285c9-31cb-4bdc-8930-6111cf61ae2a"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "set current time",
+              "description": null,
+              "arguments": {
+                "macroExistingRecord": "{{arrow.get(vars.fetchTime).shift(minutes=-vars.defaultMinutes).format('YYYY-MM-DDTHH:mm:ss.ssss')}}Z"
+              },
+              "status": null,
+              "top": "460",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": "/api/3/workflow_groups/29725e4c-0623-4d3a-b3a3-7bccbd039128",
+              "uuid": "4ab4b41e-cf3e-4253-ab6a-b87883b8a06a"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  },
+                  "_configuration_schema": "[\n        {\n          \"title\": \"Limit\",\n          \"name\": \"batchSize\",\n          \"visible\": true,\n          \"required\": false,\n          \"editable\": true,\n          \"type\": \"text\",\n          \"tooltip\": \"Defines the number of alerts included. Default value: 100\",\n          \"description\": \"Defines the number of alerts included. The default batch size is 100.\"\n        },\n        {\n          \"title\": \"Pull Alerts Created in Past X Minutes\",\n          \"name\": \"minutes\",\n          \"type\": \"text\",\n          \"tooltip\": \"Pull the alerts created in the past X minutes.\",\n          \"required\": false,\n          \"editable\": true,\n          \"visible\": true,\n          \"value\": \"5\"\n        }\n]"
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "327",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "8f8c055a-c926-4854-8a6e-186b303fc8a7"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Last Pull Time",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "macro": "{{vars.macroNameForLastPullTime}}",
+                  "value": "{{vars.lastFetchTime}}"
+                },
+                "version": "3.3.1",
+                "connector": "cyops_utilities",
+                "operation": "updatemacro",
+                "operationTitle": "FSR: Create/Update Global Variables",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "1020",
+              "left": "800",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": null,
+              "uuid": "e075bb3c-d2da-48f2-b88f-625243ead082"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "check if macro exists -> Create Macro",
+              "targetStep": "/api/3/workflow_steps/045108e5-0538-405f-875e-afde4d120ba6",
+              "sourceStep": "/api/3/workflow_steps/ce6e8183-4427-4209-8c17-df4c5537d8ee",
+              "label": "No",
+              "isExecuted": false,
+              "group": null,
+              "uuid": "f439f52a-87d1-426c-b630-5f3da0311f81"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "check if macro exists -> Fetch current macro value",
+              "targetStep": "/api/3/workflow_steps/62b304c9-6851-46db-8c7e-93340489856d",
+              "sourceStep": "/api/3/workflow_steps/ce6e8183-4427-4209-8c17-df4c5537d8ee",
+              "label": "Yes",
+              "isExecuted": false,
+              "group": null,
+              "uuid": "19ef9430-904f-4879-ada4-7f5fb887e7fa"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Get Last Pull Time",
+              "targetStep": "/api/3/workflow_steps/fedfba5c-ad11-427b-bb71-67d9a2b38373",
+              "sourceStep": "/api/3/workflow_steps/80318b62-513a-42a5-afda-a3df856f44b8",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "5407a10f-cc00-4793-8d42-1edba85d639c"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Create Macro -> set current time",
+              "targetStep": "/api/3/workflow_steps/4ab4b41e-cf3e-4253-ab6a-b87883b8a06a",
+              "sourceStep": "/api/3/workflow_steps/045108e5-0538-405f-875e-afde4d120ba6",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "3b88c55a-1ebd-4449-8d79-0dd4c5fbed7e"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Debug -> Update Last Pull Time",
+              "targetStep": "/api/3/workflow_steps/e075bb3c-d2da-48f2-b88f-625243ead082",
+              "sourceStep": "/api/3/workflow_steps/32fdbff3-d4b8-4c15-8544-6ec5b8a2d98c",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "01d55c2a-dd08-423a-b0af-71e824cc93c0"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Fetch current macro value -> get last tinme",
+              "targetStep": "/api/3/workflow_steps/e783ed5e-667a-421e-8c65-0ce6e8ce588c",
+              "sourceStep": "/api/3/workflow_steps/62b304c9-6851-46db-8c7e-93340489856d",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "3513c3b3-9747-4cbf-9b28-2f01c9a4abda"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Alerts -> Return Data",
+              "targetStep": "/api/3/workflow_steps/ffb285c9-31cb-4bdc-8930-6111cf61ae2a",
+              "sourceStep": "/api/3/workflow_steps/2b581d4f-8524-4860-a08e-92533b5f15f0",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "9bf26196-384d-49d0-92f1-05cf96382254"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Last Pull Time -> check if macro exists",
+              "targetStep": "/api/3/workflow_steps/ce6e8183-4427-4209-8c17-df4c5537d8ee",
+              "sourceStep": "/api/3/workflow_steps/fedfba5c-ad11-427b-bb71-67d9a2b38373",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "3b65fd06-ae82-4f05-ac48-5b35f6084c4b"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "get last tinme -> Get timestamps",
+              "targetStep": "/api/3/workflow_steps/32fdbff3-d4b8-4c15-8544-6ec5b8a2d98c",
+              "sourceStep": "/api/3/workflow_steps/e783ed5e-667a-421e-8c65-0ce6e8ce588c",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "0caa6378-689d-4b87-a0d0-838a0c41639c"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "set current time -> Debug",
+              "targetStep": "/api/3/workflow_steps/32fdbff3-d4b8-4c15-8544-6ec5b8a2d98c",
+              "sourceStep": "/api/3/workflow_steps/4ab4b41e-cf3e-4253-ab6a-b87883b8a06a",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "5c3934b8-13ee-402d-b0cc-a48dc97668c5"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/80318b62-513a-42a5-afda-a3df856f44b8",
+              "sourceStep": "/api/3/workflow_steps/8f8c055a-c926-4854-8a6e-186b303fc8a7",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "672ec87c-d42e-4bd3-bfb6-accfd6d22077"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Update Last Pull Time -> Get Alerts",
+              "targetStep": "/api/3/workflow_steps/2b581d4f-8524-4860-a08e-92533b5f15f0",
+              "sourceStep": "/api/3/workflow_steps/e075bb3c-d2da-48f2-b88f-625243ead082",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "1d1452b6-b39b-4318-ac8c-74b88a4b6c65"
+            }
+          ],
+          "groups": [
+            {
+              "@type": "WorkflowGroup",
+              "name": "PullTime Macro",
+              "description": "",
+              "type": "block",
+              "isCollapsed": false,
+              "hasTriggerStep": false,
+              "hideInLogs": false,
+              "metadata": [],
+              "reusable": false,
+              "top": "420",
+              "left": "140",
+              "height": "547",
+              "width": "647",
+              "uuid": "29725e4c-0623-4d3a-b3a3-7bccbd039128",
+              "recordTags": []
+            }
+          ],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b6bfd3ed-0e58-4629-91b8-c7ade25245f5",
+          "id": 599,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "dataingestion",
+            "fetch",
+            "SAP",
+            "sap-etd-cloud"
+          ]
+        }
+      ]
+    }
+  ]
+}
