@@ -1,3 +1,9 @@
+"""
+Copyright start
+MIT License
+Copyright (c) 2024 Fortinet Inc
+Copyright end
+"""
 import requests
 import base64
 from .constants import REQUEST_TIMEOUT, LOGGER_NAME, AUTH_API_ENDPOINT, ALERTS_API_ENDPOINT
