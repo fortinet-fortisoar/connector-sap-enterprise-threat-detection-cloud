@@ -16,9 +16,10 @@ def get_alert_by_id(config, params):
     try:
       QUERY = "$expand=Source,TriggeringEvents&$filter=AlertId eq " + str(params.get("alertID"))
       response = api_query_call(config, query=QUERY)
-      if response.status_code != requests.codes.ok:
-        logger.info(f"Error {response.status_code} - {response.text}")
-      return response.json()
+      if response.ok:
+        return response.json()
+      else:
+          raise ConnectorError(f"Error {response.status_code} - {response.text}")
     except Exception as err:
       logger.exception(err)
       raise ConnectorError(err)

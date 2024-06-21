@@ -21,11 +21,12 @@ def get_auth_token(config, **kwargs):
         if response.status_code != requests.codes.ok:
             logger.error("Error: {0}".format(response.content))
             raise ConnectorError('Error: {0}'.format(response.content))
-        TOKEN = response.json()['access_token']
-        if not TOKEN:
+        access_token = response.json()['access_token']
+        if not access_token:
+            response_json = response.json()
             logger.error("Error: {0}".format(response_json.get("message")))
             raise Exception('Error: {0}'.format(response_json.get("message")))
-        return TOKEN
+        return access_token
     except Exception as e:
         logger.error('{0}'.format(e))
         raise ConnectorError('{0}'.format(e))
@@ -33,9 +34,9 @@ def get_auth_token(config, **kwargs):
 def api_query_call(config, query=None, **kwargs):
     try:
         url = config.get("eTDDataRetrievalURL") + ALERTS_API_ENDPOINT
-        TOKEN = get_auth_token(config)
-        HEADERS = { 'Authorization': 'Bearer ' + TOKEN}
-        result = requests.get(url=url + query, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        access_token = get_auth_token(config)
+        header = { 'Authorization': 'Bearer ' + access_token}
+        result = requests.get(url=url + query, headers=header, timeout=REQUEST_TIMEOUT)
         return result
     except Exception as e:
         logger.error('{0}'.format(e))

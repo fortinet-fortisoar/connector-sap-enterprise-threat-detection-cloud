@@ -18,7 +18,7 @@
           "uuid": "c4ed80b5-b942-4773-82ad-b57749e990e3",
           "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
           "triggerLimit": null,
-          "description": "Retrive alerts based on start and end date/time.",
+          "description": "Retrieve alerts based on start and end date/time",
           "name": "Get Alerts",
           "tag": "#SAP Enterprise Threat Detection Cloud Edition",
           "recordTags": [
@@ -99,8 +99,8 @@
           "uuid": "eeb2d317-011b-4b9d-aea5-5c0c86d41538",
           "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
           "triggerLimit": null,
-          "description": "Get Alerts by specified ID",
-          "name": "Get Alert Details by ID",
+          "description": "Get Alert detail information based on specified alert ID",
+          "name": "Get Alert Details",
           "tag": "#SAP Enterprise Threat Detection Cloud Edition",
           "recordTags": [
             "sap-etd-cloud"
@@ -120,7 +120,7 @@
               "status": null,
               "arguments": {
                 "route": "32577cdd-8e62-48d2-b7d8-b24b2bf49659",
-                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alert Details by ID",
+                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alert Details",
                 "resources": [
                   "alerts"
                 ],
@@ -141,7 +141,7 @@
             {
               "uuid": "e268d255-aef0-499f-a19a-8329ee590e84",
               "@type": "WorkflowStep",
-              "name": "Get Alert Details by ID",
+              "name": "Get Alert Details",
               "description": null,
               "status": null,
               "arguments": {
@@ -151,7 +151,7 @@
                 "version": "1.0.0",
                 "connector": "sap-etd-cloud",
                 "operation": "get_alert_by_id",
-                "operationTitle": "Get Alert Details by ID",
+                "operationTitle": "Get Alert Details",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -167,7 +167,7 @@
               "uuid": "15adbef0-70bf-4fbb-910a-35ee9083a16b",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Get Alert Details by ID",
+              "name": "Start-> Get Alert Details",
               "sourceStep": "/api/3/workflow_steps/e6410138-803b-4225-a0fd-73bd5262d3e9",
               "targetStep": "/api/3/workflow_steps/e268d255-aef0-499f-a19a-8329ee590e84"
             }
@@ -178,7 +178,7 @@
           "uuid": "95efd50e-ccb5-4760-875c-061b3c0b58e3",
           "collection": "/api/3/workflow_collections/ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
           "triggerLimit": null,
-          "description": "Get alerts with expansion and filter for investigations",
+          "description": "Get alerts with expansion and filter for investigations.",
           "name": "Get Investigations",
           "tag": "#SAP Enterprise Threat Detection Cloud Edition",
           "recordTags": [
@@ -261,7 +261,7 @@
           "aliasName": null,
           "tag": null,
           "description": null,
-          "isActive": true,
+          "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
@@ -391,7 +391,7 @@
           "aliasName": null,
           "tag": null,
           "description": null,
-          "isActive": true,
+          "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
@@ -526,7 +526,7 @@
           "aliasName": null,
           "tag": null,
           "description": null,
-          "isActive": true,
+          "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "remoteExecutableFlag": false,
