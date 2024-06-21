@@ -16,9 +16,10 @@ def get_investigations(config, params):
     try:
       QUERY = "$expand=Investigations&$filter=Investigations/any(a:a/Id eq "+ str(params.get("alertID")) + ")&$top=" + str(params.get("limit"))
       response = api_query_call(config, query=QUERY)
-      if response.status_code != requests.codes.ok:
-        logger.info(f"Error {response.status_code} - {response.text}")
-      return response.json()
+      if response.ok:
+        return response.json()
+      else:
+          raise ConnectorError(f"Error {response.status_code} - {response.text}")
     except Exception as err:
-      logger.exception(err)
+      logger.error(err)
       raise ConnectorError(err)

@@ -23,10 +23,11 @@ class Sap_etd_cloud(Connector):
     def check_health(self, config, *args, **kwargs):
         try:
             response = api_query_call(config, query="$top=1")
-            if response.status_code == requests.codes.ok:
+            if response.ok:
                 logger.info("Connector is available")
                 return True
-            logger.info(f"Error {response.status_code} - {response.text}")
+            else:
+                raise ConnectorError(f"Error {response.status_code} - {response.text}")
         except Exception as err:
             logger.exception(err)
             raise ConnectorError(err)
