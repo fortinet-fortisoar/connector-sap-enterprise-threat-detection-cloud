@@ -36,7 +36,7 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations:
 <table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Get Alerts</td><td>Retrieve alerts based on start and end date/time</td><td> <br/></td></tr>
-<tr><td>Get Alert Details by ID</td><td>Get Alert detail information based on specified alert ID</td><td> <br/></td></tr>
+<tr><td>Get Alert Details</td><td>Get Alert detail information based on specified alert ID</td><td> <br/></td></tr>
 <tr><td>Get Investigations</td><td>Get alerts with expansion and filter for investigations.</td><td> <br/></td></tr>
 </tbody></table>
 
@@ -50,7 +50,7 @@ The following automated operations can be included in playbooks and you can also
 #### Output
 
  No output schema is available at this time.
-### operation: Get Alert Details by ID
+### operation: Get Alert Details
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Alert ID</td><td>Specify ID of the alert to retrieve details information.
 </td></tr></tbody></table>
