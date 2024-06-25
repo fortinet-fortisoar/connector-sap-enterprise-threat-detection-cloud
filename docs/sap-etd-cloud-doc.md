@@ -93,6 +93,6 @@ For more information on field mapping, see the Data Ingestion chapter in the Con
 4. Use the Scheduling screen to configure schedule-based ingestion, i.e., specify the polling frequency to SAP Enterprise Threat Detection Cloud, so that the content gets pulled from the SAP Enterprise Threat Detection Cloud Edition integration into FortiSOAR™.
 On the Scheduling screen, from the Do you want to schedule the ingestion? drop-down list, select Yes.
 In the Configure Schedule Settings section, specify the Cron expression for the schedule. For example, if you want to pull data from SAP Enterprise Threat Detection Cloud every morning at 5 am, click Daily, and in the hour box enter 5, and in the minute box enter 0:
-![Scheduling](./images/Scheduling.png)
+![Scheduling](./images/scheduling.png)
 Once you have completed scheduling, click Save Settings & Continue.
 5. The Summary screen displays a summary of the mapping done, and it also contains links to the Ingestion playbooks. Click Done to complete the data ingestion, and exit the Data Ingestion Wizard.
