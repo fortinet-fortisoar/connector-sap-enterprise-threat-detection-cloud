@@ -102,11 +102,15 @@
           "tooltip": "Specify the date and time until which the alerts should be received."
         }
       ],
+      "category": "investigation",
+      "annotation": "get_alerts",
       "open": false
     },
     {
-      "title": "Get Alert Details by ID",
+      "title": "Get Alert Details",
       "operation": "get_alert_by_id",
+      "category": "investigation",
+      "annotation": "get_alert_details",
       "description": "Get Alert detail information based on specified alert ID",
       "parameters": [
         {
@@ -126,6 +130,8 @@
       "title": "Get Investigations",
       "operation": "get_investigations",
       "description": "Get alerts with expansion and filter for investigations.",
+      "category": "investigation",
+      "annotation": "Investigations",
       "parameters": [
         {
           "title": "Alert ID",
