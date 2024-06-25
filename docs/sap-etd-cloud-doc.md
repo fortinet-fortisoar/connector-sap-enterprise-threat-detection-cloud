@@ -76,5 +76,23 @@ You can configure data ingestion using the Data Ingestion Wizard to seamlessly m
 
 The Data Ingestion Wizard enables you to configure scheduled pulling of data from SAP Enterprise Threat Detection Cloud into FortiSOAR™. It also lets you pull some sample data from SAP Enterprise Threat Detection Cloud using which you can define the mapping of data between SAP Enterprise Threat Detection Cloud and FortiSOAR™. The mapping of common fields is generally already done by the Data Ingestion Wizard; users are mostly required to only map any custom fields that are added to the SAP Enterprise Threat Detection Cloud.
 
-To begin configuring data ingestion, click Configure Data Ingestion on the SAP Enterprise Threat Detection Cloud connector's Configurations page.
+1. To begin configuring data ingestion, click Configure Data Ingestion on the SAP Enterprise Threat Detection Cloud connector's Configurations page.
 Click Let's Start by fetching some data, to open the Fetch Sample Data screen:
+
+    ![Start](./images/start_data_ingestion_page.png)
+    Sample data is required to create a field mapping between SAP Enterprise Threat Detection Cloud data and FortiSOAR™. The sample data is pulled from connector actions or ingestion playbooks.
+
+2. On the Fetch Data screen, provide the configurations required to fetch SAP Enterprise Threat Detection Cloud data.
+Type the time in minutes in the `Pull Alerts Created in Past X Minutes` field to specify the time from when you want to pull alerts from SAP Enterprise Threat Detection Cloud. Additionally, you can also specify a number in the Limit field, which will limit the alert records to be pulled from SAP Enterprise Threat Detection Cloud.
+![Configuration](./images/configuration.png)
+The fetched data is used to create a mapping between the SAP Enterprise Threat Detection Cloud data and FortiSOAR™ alerts. Once you have completed specifying the configurations, click Fetch Data.
+3. On the Field Mapping screen, map the fields of an SAP Enterprise Threat Detection Cloud alert to the fields of an alert present in FortiSOAR™.
+To map a field, click the key in the sample data to add the Jinja value of the field. For example, to map the `PatternName` parameter of an SAP Enterprise Threat Detection Cloud alert to the `Alert Name` parameter of a FortiSOAR™ alert, click the `Alert Name` field and then click the `PatternName` field to populate its keys:
+![FiledMapping](./images/field_mapping.png)
+For more information on field mapping, see the Data Ingestion chapter in the Connectors Guide in the FortiSOAR™ product documentation. Once you have completed mapping the fields, click Save Mapping & Continue.
+4. Use the Scheduling screen to configure schedule-based ingestion, i.e., specify the polling frequency to SAP Enterprise Threat Detection Cloud, so that the content gets pulled from the SAP Enterprise Threat Detection Cloud Edition integration into FortiSOAR™.
+On the Scheduling screen, from the Do you want to schedule the ingestion? drop-down list, select Yes.
+In the Configure Schedule Settings section, specify the Cron expression for the schedule. For example, if you want to pull data from SAP Enterprise Threat Detection Cloud every morning at 5 am, click Daily, and in the hour box enter 5, and in the minute box enter 0:
+![Scheduling](./images/Scheduling.png)
+Once you have completed scheduling, click Save Settings & Continue.
+5. The Summary screen displays a summary of the mapping done, and it also contains links to the Ingestion playbooks. Click Done to complete the data ingestion, and exit the Data Ingestion Wizard.
