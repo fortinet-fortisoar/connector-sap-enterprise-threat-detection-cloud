@@ -67,7 +67,14 @@ The following automated operations can be included in playbooks and you can also
 #### Output
 
  No output schema is available at this time.
-## Data Ingestion Support
-Use the Data Ingestion Wizard to easily ingest data into FortiSOAR&trade; by pulling events/alerts/incidents, based on the requirement.
 
-**TODO:** provide the list of steps to configure the ingestion with the screen shots and limitations if any in this section.
+### Data Ingestion Support
+Use the Data Ingestion Wizard to easily ingest data into FortiSOAR™ by pulling alert contents from SAP Enterprise Threat Detection Cloud. Currently, alert contents ingested from SAP Enterprise Threat Detection Cloud are mapped to alerts in FortiSOAR™. For more information on the Data Ingestion Wizard, see the Connectors Guide in the FortiSOAR™ product documentation.
+
+#### Configure Data Ingestion
+You can configure data ingestion using the Data Ingestion Wizard to seamlessly map the incoming SAP Enterprise Threat Detection Cloud alerts to FortiSOAR™ Alerts.
+
+The Data Ingestion Wizard enables you to configure scheduled pulling of data from SAP Enterprise Threat Detection Cloud into FortiSOAR™. It also lets you pull some sample data from SAP Enterprise Threat Detection Cloud using which you can define the mapping of data between SAP Enterprise Threat Detection Cloud and FortiSOAR™. The mapping of common fields is generally already done by the Data Ingestion Wizard; users are mostly required to only map any custom fields that are added to the SAP Enterprise Threat Detection Cloud.
+
+To begin configuring data ingestion, click Configure Data Ingestion on the SAP Enterprise Threat Detection Cloud connector's Configurations page.
+Click Let's Start by fetching some data, to open the Fetch Sample Data screen:

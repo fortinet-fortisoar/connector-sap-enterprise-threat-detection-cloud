@@ -5,7 +5,7 @@
   "description": "SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud Edition connector performs action like get and ingest Events, Alerts and Investigations.",
   "cs_approved": false,
   "cs_compatible": true,
-  "help_online": "https://github.com/fortinet-fortisoar/connector-sap-etd-cloud/tree/release/1.0.0/sap-etd-cloud/docs/sap-etd-cloud-doc.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-sap-etd-cloud/tree/release/1.0.0/docs/sap-etd-cloud-doc.md",
   "publisher": "Fortinet CSE",
   "contributor": "Julian Petersohn",
   "icon_small_name": "small.png",
