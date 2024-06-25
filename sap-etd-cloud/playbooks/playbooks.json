@@ -276,7 +276,7 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Create Alert Record",
+              "name": "Create Record",
               "description": null,
               "arguments": {
                 "resource": {
@@ -350,7 +350,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Extract Alert information -> Create Alert Record",
+              "name": "Extract Alert information -> Create Record",
               "targetStep": "/api/3/workflow_steps/53c135ba-e017-4296-8577-d9af86a7f0fa",
               "sourceStep": "/api/3/workflow_steps/01c83254-6274-4e9f-ab17-8c3e896ad7e4",
               "label": null,

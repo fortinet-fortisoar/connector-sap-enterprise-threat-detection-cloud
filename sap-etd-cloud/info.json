@@ -5,7 +5,7 @@
   "description": "SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud Edition connector performs action like get and ingest Events, Alerts and Investigations.",
   "cs_approved": false,
   "cs_compatible": true,
-  "help_online": "https://github.com/fortinet-fortisoar/connector-sap-etd-cloud/tree/release/1.0.0/sap-etd-cloud/docs/sap-etd-cloud-doc.md",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-sap-etd-cloud/tree/release/1.0.0/docs/sap-etd-cloud-doc.md",
   "publisher": "Fortinet CSE",
   "contributor": "Julian Petersohn",
   "icon_small_name": "small.png",
@@ -102,11 +102,15 @@
           "tooltip": "Specify the date and time until which the alerts should be received."
         }
       ],
+      "category": "investigation",
+      "annotation": "get_alerts",
       "open": false
     },
     {
-      "title": "Get Alert Details by ID",
+      "title": "Get Alert Details",
       "operation": "get_alert_by_id",
+      "category": "investigation",
+      "annotation": "get_alert_details",
       "description": "Get Alert detail information based on specified alert ID",
       "parameters": [
         {
@@ -126,6 +130,8 @@
       "title": "Get Investigations",
       "operation": "get_investigations",
       "description": "Get alerts with expansion and filter for investigations.",
+      "category": "investigation",
+      "annotation": "Investigations",
       "parameters": [
         {
           "title": "Alert ID",
