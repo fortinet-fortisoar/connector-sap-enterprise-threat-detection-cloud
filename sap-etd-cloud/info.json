@@ -1,7 +1,7 @@
 {
   "name": "sap-etd-cloud",
   "version": "1.0.0",
-  "label": "SAP Enterprise Threat Detection Cloud Edition",
+  "label": "SAP Enterprise Threat Detection Cloud",
   "description": "SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud Edition connector performs action like get and ingest Events, Alerts and Investigations.",
   "cs_approved": false,
   "cs_compatible": true,
