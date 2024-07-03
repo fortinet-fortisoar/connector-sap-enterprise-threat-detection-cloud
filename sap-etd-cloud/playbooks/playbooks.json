@@ -22,6 +22,7 @@
           "name": "Get Alerts",
           "tag": "#SAP Enterprise Threat Detection Cloud",
           "recordTags": [
+            "SAP",
             "sap-etd-cloud"
           ],
           "isActive": false,
@@ -103,6 +104,7 @@
           "name": "Get Alert Details",
           "tag": "#SAP Enterprise Threat Detection Cloud",
           "recordTags": [
+            "SAP",
             "sap-etd-cloud"
           ],
           "isActive": false,
@@ -182,6 +184,7 @@
           "name": "Get Investigations",
           "tag": "#SAP Enterprise Threat Detection Cloud",
           "recordTags": [
+            "SAP",
             "sap-etd-cloud"
           ],
           "isActive": false,
@@ -260,7 +263,7 @@
           "name": "> SAP ETD CE > Create Record",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Creates alert records in FortiSOAR based on alerts fetched from SAP Enterprise Threat Detection (ETD) Cloud platform",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
@@ -390,7 +393,7 @@
           "name": "SAP ETD CE > Ingest",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Ingest list of alerts from SAP Enterprise Threat Detection (ETD) Cloud platform.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
@@ -525,7 +528,7 @@
           "name": "> SAP ETD CE > Fetch",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Fetches list of alerts from SAP Enterprise Threat Detection (ETD) Cloud platform.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
