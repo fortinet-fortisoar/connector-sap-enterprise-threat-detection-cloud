@@ -1,6 +1,6 @@
 ## About the connector
-SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud Edition connector performs action like get and ingest Events, Alerts and Investigations.
-<p>This document provides information about the SAP Enterprise Threat Detection Cloud Edition Connector, which facilitates automated interactions, with a SAP Enterprise Threat Detection Cloud Edition server using FortiSOAR&trade; playbooks. Add the SAP Enterprise Threat Detection Cloud Edition Connector as a step in FortiSOAR&trade; playbooks and perform automated operations with SAP Enterprise Threat Detection Cloud Edition.</p>
+SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud connector performs action like get and ingest Events, Alerts and Investigations.
+<p>This document provides information about the SAP Enterprise Threat Detection Cloud Connector, which facilitates automated interactions, with a SAP Enterprise Threat Detection Cloud server using FortiSOAR&trade; playbooks. Add the SAP Enterprise Threat Detection Cloud Connector as a step in FortiSOAR&trade; playbooks and perform automated operations with SAP Enterprise Threat Detection Cloud.</p>
 
 ### Version information
 
@@ -17,8 +17,8 @@ Certified: No
 <pre>yum install cyops-connector-sap-etd-cloud</pre>
 
 ## Prerequisites to configuring the connector
-- You must have the credentials of SAP Enterprise Threat Detection Cloud Edition server to which you will connect and perform automated operations.
-- The FortiSOAR&trade; server should have outbound connectivity to port 443 on the SAP Enterprise Threat Detection Cloud Edition server.
+- You must have the credentials of SAP Enterprise Threat Detection Cloud server to which you will connect and perform automated operations.
+- The FortiSOAR&trade; server should have outbound connectivity to port 443 on the SAP Enterprise Threat Detection Cloud server.
 
 ## Minimum Permissions Required
 - Not applicable
@@ -26,7 +26,7 @@ Certified: No
 ## Configuring the connector
 For the procedure to configure a connector, click [here](https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector)
 ### Configuration parameters
-<p>In FortiSOAR&trade;, on the Connectors page, click the <strong>SAP Enterprise Threat Detection Cloud Edition</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations</strong> tab enter the required configuration details:</p>
+<p>In FortiSOAR&trade;, on the Connectors page, click the <strong>SAP Enterprise Threat Detection Cloud</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations</strong> tab enter the required configuration details:</p>
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Authentication URL</td><td>The Authentication URL is contained in the field `uaa.url` of the service key</td>
 </tr><tr><td>ETD Data Retrieval URL</td><td>The Authentication URL is contained in the field `url` of the service key</td>
 </tr><tr><td>Client ID</td><td>The Client ID is specified in the field `client id` in the service key.</td>
@@ -90,7 +90,7 @@ The fetched data is used to create a mapping between the SAP Enterprise Threat D
 To map a field, click the key in the sample data to add the Jinja value of the field. For example, to map the `PatternName` parameter of an SAP Enterprise Threat Detection Cloud alert to the `Alert Name` parameter of a FortiSOAR™ alert, click the `Alert Name` field and then click the `PatternName` field to populate its keys:
 ![FiledMapping](./images/field_mapping.png)
 For more information on field mapping, see the Data Ingestion chapter in the Connectors Guide in the FortiSOAR™ product documentation. Once you have completed mapping the fields, click Save Mapping & Continue.
-4. Use the Scheduling screen to configure schedule-based ingestion, i.e., specify the polling frequency to SAP Enterprise Threat Detection Cloud, so that the content gets pulled from the SAP Enterprise Threat Detection Cloud Edition integration into FortiSOAR™.
+4. Use the Scheduling screen to configure schedule-based ingestion, i.e., specify the polling frequency to SAP Enterprise Threat Detection Cloud, so that the content gets pulled from the SAP Enterprise Threat Detection Cloud integration into FortiSOAR™.
 On the Scheduling screen, from the Do you want to schedule the ingestion? drop-down list, select Yes.
 In the Configure Schedule Settings section, specify the Cron expression for the schedule. For example, if you want to pull data from SAP Enterprise Threat Detection Cloud every morning at 5 am, click Daily, and in the hour box enter 5, and in the minute box enter 0:
 ![Scheduling](./images/scheduling.png)

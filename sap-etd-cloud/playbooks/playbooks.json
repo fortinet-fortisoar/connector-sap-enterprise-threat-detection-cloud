@@ -4,8 +4,8 @@
     {
       "uuid": "ce7bd1cf-0a7e-4bdf-96e0-d1a381872c43",
       "@type": "WorkflowCollection",
-      "name": "Sample - SAP Enterprise Threat Detection Cloud Edition - 1.0.0",
-      "description": "SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud Edition connector performs action like get and ingest Events, Alerts and Investigations.",
+      "name": "Sample - SAP Enterprise Threat Detection Cloud - 1.0.0",
+      "description": "SAP Enterprise Threat Detection (ETD), Cloud Edition helps you to identify the real attacks as they are happening and analyze the threats quickly enough to neutralize them before serious damage occurs. SAP Enterprise Threat Detection Cloud connector performs action like get and ingest Events, Alerts and Investigations.",
       "visible": true,
       "image": null,
       "recordTags": [
@@ -20,8 +20,9 @@
           "triggerLimit": null,
           "description": "Retrieve alerts based on start and end date/time",
           "name": "Get Alerts",
-          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "tag": "#SAP Enterprise Threat Detection Cloud",
           "recordTags": [
+            "SAP",
             "sap-etd-cloud"
           ],
           "isActive": false,
@@ -39,7 +40,7 @@
               "status": null,
               "arguments": {
                 "route": "e9d960e7-249c-41d6-b2c8-fc2abdb24044",
-                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alerts",
+                "title": "SAP Enterprise Threat Detection Cloud: Get Alerts",
                 "resources": [
                   "alerts"
                 ],
@@ -64,7 +65,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "name": "SAP Enterprise Threat Detection Cloud",
                 "config": "''",
                 "params": {
                   "limit": 10
@@ -101,8 +102,9 @@
           "triggerLimit": null,
           "description": "Get Alert detail information based on specified alert ID",
           "name": "Get Alert Details",
-          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "tag": "#SAP Enterprise Threat Detection Cloud",
           "recordTags": [
+            "SAP",
             "sap-etd-cloud"
           ],
           "isActive": false,
@@ -120,7 +122,7 @@
               "status": null,
               "arguments": {
                 "route": "32577cdd-8e62-48d2-b7d8-b24b2bf49659",
-                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Alert Details",
+                "title": "SAP Enterprise Threat Detection Cloud: Get Alert Details",
                 "resources": [
                   "alerts"
                 ],
@@ -145,7 +147,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "name": "SAP Enterprise Threat Detection Cloud",
                 "config": "''",
                 "params": [],
                 "version": "1.0.0",
@@ -180,8 +182,9 @@
           "triggerLimit": null,
           "description": "Get alerts with expansion and filter for investigations.",
           "name": "Get Investigations",
-          "tag": "#SAP Enterprise Threat Detection Cloud Edition",
+          "tag": "#SAP Enterprise Threat Detection Cloud",
           "recordTags": [
+            "SAP",
             "sap-etd-cloud"
           ],
           "isActive": false,
@@ -199,7 +202,7 @@
               "status": null,
               "arguments": {
                 "route": "fd44b15a-edd3-40ba-8734-20a84a8ca449",
-                "title": "SAP Enterprise Threat Detection Cloud Edition: Get Investigations",
+                "title": "SAP Enterprise Threat Detection Cloud: Get Investigations",
                 "resources": [
                   "alerts"
                 ],
@@ -224,7 +227,7 @@
               "description": null,
               "status": null,
               "arguments": {
-                "name": "SAP Enterprise Threat Detection Cloud Edition",
+                "name": "SAP Enterprise Threat Detection Cloud",
                 "config": "''",
                 "params": {
                   "limit": 10
@@ -260,7 +263,7 @@
           "name": "> SAP ETD CE > Create Record",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Creates alert records in FortiSOAR based on alerts fetched from SAP Enterprise Threat Detection (ETD) Cloud platform",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
@@ -390,7 +393,7 @@
           "name": "SAP ETD CE > Ingest",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Ingest list of alerts from SAP Enterprise Threat Detection (ETD) Cloud platform.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
@@ -525,7 +528,7 @@
           "name": "> SAP ETD CE > Fetch",
           "aliasName": null,
           "tag": null,
-          "description": null,
+          "description": "Fetches list of alerts from SAP Enterprise Threat Detection (ETD) Cloud platform.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
